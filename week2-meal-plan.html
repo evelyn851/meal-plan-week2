@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 2 Meal Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#1C1E1C;
+    --muted:#6B6F69;
+    --line:#E6E2D8;
+    --line-strong:#C9C3B4;
+    --green:#2F5D50;
+    --band:#F4F2EC;
+    --band-green:#EBF1EE;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:48px 32px 80px;}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin:0 0 10px;}
+  h1{font-weight:700;font-size:32px;letter-spacing:-.01em;margin:0 0 8px;}
+  .sub{color:var(--muted);font-size:14.5px;max-width:70ch;margin:0;}
+
+  /* target strip */
+  .target{display:flex;flex-wrap:wrap;gap:0;margin:28px 0 8px;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;}
+  .target .cell{flex:1 1 auto;padding:12px 18px;border-right:1px solid var(--line);min-width:120px;}
+  .target .cell:last-child{border-right:none;}
+  .target .cell.lead{background:var(--band-green);}
+  .target .n{font-family:"Space Mono",monospace;font-size:20px;font-weight:700;}
+  .target .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+  .target .cell.wide{flex:2 1 260px;}
+  .target .cell.wide .n{font-size:13px;font-weight:600;font-family:"Inter";}
+  .target .cell.wide .l{text-transform:none;letter-spacing:0;font-family:"Space Mono",monospace;color:var(--green);font-size:11.5px;margin-top:4px;}
+
+  h2{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:48px 0 6px;padding-bottom:9px;border-bottom:2px solid var(--ink);}
+  .lede{color:var(--muted);font-size:13.5px;margin:12px 0 18px;max-width:76ch;}
+
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  caption{text-align:left;}
+  th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:1.5px solid var(--line-strong);vertical-align:bottom;}
+  td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  .grid tbody tr:nth-child(even){background:var(--band);}
+  .day{font-family:"Space Mono",monospace;font-weight:700;color:var(--green);width:48px;}
+  .fats{color:var(--muted);font-size:13px;}
+  .fats .light{color:var(--green);font-weight:600;}
+  .tot{font-family:"Space Mono",monospace;font-size:13px;white-space:nowrap;}
+  .tot b{color:var(--green);}
+
+  .qty{font-family:"Space Mono",monospace;font-size:13px;color:var(--muted);white-space:nowrap;}
+  td a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--line-strong);font-weight:600;}
+  td a:hover{border-color:var(--green);}
+  .tag{font-family:"Space Mono",monospace;font-size:10px;color:var(--green);border:1px solid var(--line-strong);border-radius:4px;padding:1px 5px;margin-left:6px;}
+  .why{display:block;color:var(--muted);font-size:12.5px;margin-top:3px;}
+  .grouprow td{background:var(--band);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);padding:9px 14px;}
+  .grouprow td span{float:right;color:var(--muted);font-family:"Space Mono",monospace;font-weight:400;letter-spacing:0;text-transform:none;}
+  .mono{font-family:"Space Mono",monospace;}
+
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;font-family:"Space Mono",monospace;}
+
+  @media(max-width:680px){
+    .wrap{padding:32px 16px 56px;}
+    h1{font-size:26px;}
+    table{font-size:13px;}
+    th,td{padding:9px 8px;}
+    .target .cell{min-width:100px;}
+  }
+  @media print{
+    body{font-size:12px;}
+    .wrap{padding:0;max-width:100%;}
+    table,.target{break-inside:avoid;}
+    td a{border:none;color:var(--ink);}
+    .grid tbody tr:nth-child(even){background:#f4f2ec !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Nutrition Plan · Week 2</p>
+  <h1>High-Protein Daily Plan</h1>
+  <p class="sub">Dairy-free, egg-free. Three small meals a day plus two protein drinks. All proteins are 6&nbsp;oz, weighed raw, air-fried.</p>
+
+  <div class="target">
+    <div class="cell"><div class="n">200g</div><div class="l">Protein</div></div>
+    <div class="cell"><div class="n">115g</div><div class="l">Carbs</div></div>
+    <div class="cell"><div class="n">65g</div><div class="l">Fat</div></div>
+    <div class="cell lead"><div class="n">1,850</div><div class="l">kcal / day</div></div>
+    <div class="cell wide"><div class="n">Drinks cover ≈ 70g protein</div><div class="l">1 Carnivore RTD (40g) + 1 Equip @ 1.5 scoops (30g)</div></div>
+  </div>
+
+  <!-- 7-DAY GRID -->
+  <h2>The Week</h2>
+  <p class="lede">Each meal is one 6&nbsp;oz protein + one carb side. The added fats are the balancing lever — leaner days get more, steak days get less — so every day lands at 65g fat. Totals are the meals only; the two drinks add the remaining protein on top.</p>
+  <table class="grid">
+    <thead>
+      <tr><th>Day</th><th>Meal 1</th><th>Meal 2</th><th>Meal 3</th><th>Added fats</th><th>Meals total<br>P / C / F</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="day">1</td>
+        <td>Beef + potatoes</td><td>Turkey breast + rice</td><td>Chicken + sweet potato</td>
+        <td class="fats">½ avocado · 1 oz almonds · 2 tsp olive oil</td>
+        <td class="tot"><b>130g</b> / 115g / 65g</td>
+      </tr>
+      <tr>
+        <td class="day">2</td>
+        <td>Turkey breast + rice</td><td>Chicken + quinoa</td><td>Steak + banana &amp; berries</td>
+        <td class="fats">½ avocado · 1 oz walnuts · 1 tbsp olive oil</td>
+        <td class="tot"><b>137g</b> / 119g / 65g</td>
+      </tr>
+      <tr>
+        <td class="day">3</td>
+        <td>Beef + potatoes</td><td>Turkey breast + quinoa</td><td>Steak + sweet potato</td>
+        <td class="fats"><span class="light">steak day —</span> ½ avocado · 4 tsp olive oil</td>
+        <td class="tot"><b>124g</b> / 109g / 65g</td>
+      </tr>
+      <tr>
+        <td class="day">4</td>
+        <td>Beef + rice</td><td>Chicken + sweet potato</td><td>Steak + banana &amp; berries</td>
+        <td class="fats"><span class="light">steak day —</span> ½ avocado · 1 tbsp olive oil</td>
+        <td class="tot"><b>137g</b> / 124g / 65g</td>
+      </tr>
+      <tr>
+        <td class="day">5</td>
+        <td>Beef + potatoes</td><td>Turkey breast + rice</td><td>Chicken + quinoa</td>
+        <td class="fats">½ avocado · 1 oz almonds · 2 tsp olive oil</td>
+        <td class="tot"><b>130g</b> / 110g / 65g</td>
+      </tr>
+      <tr>
+        <td class="day">6</td>
+        <td>Turkey breast + quinoa</td><td>Chicken + sweet potato</td><td>Steak + banana &amp; berries</td>
+        <td class="fats">½ avocado · 1 oz walnuts · 1 tbsp olive oil</td>
+        <td class="tot"><b>137g</b> / 118g / 65g</td>
+      </tr>
+      <tr>
+        <td class="day">7</td>
+        <td>Beef + potatoes</td><td>Turkey breast + rice</td><td>Steak + sweet potato</td>
+        <td class="fats"><span class="light">steak day —</span> ½ avocado · 4 tsp olive oil</td>
+        <td class="tot"><b>124g</b> / 115g / 65g</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SHOPPING -->
+  <h2>Shop Once — Whole Foods</h2>
+  <p class="lede">Full-week quantities. The four proteins link to their exact Whole Foods pages (the picks where the label matters); everything else, just choose organic.</p>
+  <table>
+    <thead><tr><th>Item</th><th>Notes</th><th style="text-align:right;">Quantity</th></tr></thead>
+    <tbody>
+      <tr class="grouprow"><td colspan="3">Proteins <span>21 servings · buy once, freeze the rest</span></td></tr>
+      <tr>
+        <td><a href="https://www.wholefoodsmarket.com/grocery/product/organic-rancher-organic-rancher-organic-ground-beef-93-lean-7-fat-100-grass-fed-grass-finished-usda-organic-pasture-raised-free-range-16-oz-b09439skw3" target="_blank" rel="noopener">Organic Rancher Ground Beef</a><span class="tag">93/7</span></td>
+        <td class="why" style="color:var(--muted);font-size:13px;">Grass-fed, 1-lb packs. Lean ratio keeps fat in range.</td>
+        <td class="qty" style="text-align:right;">2 lb (2 packs)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.wholefoodsmarket.com/grocery/product/nature-s-rancher-ground-turkey-breast-99-lean-1-fat-1-lb-b07815q7sc" target="_blank" rel="noopener">Nature's Rancher Ground Turkey Breast</a><span class="tag">99/1</span></td>
+        <td style="color:var(--muted);font-size:13px;">Must say "breast" — plain ground turkey is ~93/7 and misses the macros.</td>
+        <td class="qty" style="text-align:right;">3 lb (3 packs)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-365-by-whole-foods-market-organic-boneless-skinless-chicken-breast-b079vnn5m4" target="_blank" rel="noopener">365 Organic Chicken Breast</a></td>
+        <td style="color:var(--muted);font-size:13px;">Naturally lean whole cut — no ratio to check.</td>
+        <td class="qty" style="text-align:right;">2 lb</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.wholefoodsmarket.com/grocery/product/organic-rancher-organic-rancher-organic-beef-top-sirloin-steak-100-grass-fed-grass-finished-usda-organic-pasture-raised-free-range-g-a-p-step-4-12-oz-b09432jtv8" target="_blank" rel="noopener">Organic Rancher Top Sirloin Steak</a></td>
+        <td style="color:var(--muted);font-size:13px;">Lean cut; trim visible fat. ~3 steaks covers the week.</td>
+        <td class="qty" style="text-align:right;">2 lb (~3 steaks)</td>
+      </tr>
+
+      <tr class="grouprow"><td colspan="3">Carb sides <span>pick organic</span></td></tr>
+      <tr><td>Yukon Gold or baby potatoes</td><td></td><td class="qty" style="text-align:right;">1 bag (~1.5 lb)</td></tr>
+      <tr><td>Sweet potatoes</td><td></td><td class="qty" style="text-align:right;">3–4 medium</td></tr>
+      <tr><td>Jasmine rice</td><td style="color:var(--muted);font-size:13px;">Uses ~1¼ cups dry.</td><td class="qty" style="text-align:right;">1 bag</td></tr>
+      <tr><td>Quinoa</td><td style="color:var(--muted);font-size:13px;">Adds a little protein &amp; fat — counted in.</td><td class="qty" style="text-align:right;">1 box</td></tr>
+      <tr><td>Bananas</td><td></td><td class="qty" style="text-align:right;">3</td></tr>
+      <tr><td>Berries</td><td style="color:var(--muted);font-size:13px;">Frozen is fine if buying once.</td><td class="qty" style="text-align:right;">12 oz</td></tr>
+
+      <tr class="grouprow"><td colspan="3">Fats &amp; add-ons <span>the balancing lever</span></td></tr>
+      <tr><td>Avocados</td><td></td><td class="qty" style="text-align:right;">4</td></tr>
+      <tr><td>Almonds (unsalted)</td><td></td><td class="qty" style="text-align:right;">small bag</td></tr>
+      <tr><td>Walnuts</td><td></td><td class="qty" style="text-align:right;">small bag</td></tr>
+      <tr><td>Extra-virgin olive oil</td><td style="color:var(--muted);font-size:13px;">Likely on hand.</td><td class="qty" style="text-align:right;">1 bottle</td></tr>
+
+      <tr class="grouprow"><td colspan="3">Drinks <span>not a Whole Foods run</span></td></tr>
+      <tr><td>Carnivore RTD (red box)</td><td style="color:var(--muted);font-size:13px;">Covered by the Amazon subscription.</td><td class="qty" style="text-align:right;">~7–9 / wk</td></tr>
+      <tr><td>Equip protein shake</td><td style="color:var(--muted);font-size:13px;">1.5 scoops daily; one tub lasts weeks.</td><td class="qty" style="text-align:right;">on hand</td></tr>
+    </tbody>
+  </table>
+
+  <!-- AIR FRYER -->
+  <h2>Air Fryer</h2>
+  <p class="lede">Starting points — cook to internal temperature, not the clock. Rice and quinoa go on the stove; banana &amp; berries are raw.</p>
+  <table>
+    <thead><tr><th>Item</th><th class="mono">Temp</th><th class="mono">Time</th><th>Done at</th></tr></thead>
+    <tbody>
+      <tr><td>Ground beef 93/7 (crumbled)</td><td class="mono">400°F</td><td class="mono">8–10 min</td><td>160°F · break up halfway</td></tr>
+      <tr><td>Ground turkey breast (crumbled)</td><td class="mono">400°F</td><td class="mono">10–12 min</td><td>165°F · break up halfway</td></tr>
+      <tr><td>Chicken breast (6 oz)</td><td class="mono">380°F</td><td class="mono">14–18 min</td><td>165°F · flip halfway</td></tr>
+      <tr><td>Sirloin steak (6 oz, ~1&quot;)</td><td class="mono">400°F</td><td class="mono">10–12 min</td><td>~135°F med · flip, rest 5 min</td></tr>
+      <tr><td>Potatoes (halved)</td><td class="mono">400°F</td><td class="mono">15–18 min</td><td>fork-tender · shake once</td></tr>
+      <tr><td>Sweet potato (cubed)</td><td class="mono">400°F</td><td class="mono">15–20 min</td><td>fork-tender · shake once</td></tr>
+    </tbody>
+  </table>
+
+  <footer>Week 2 of 4 · protein holds at 200g; carbs and calories step up in weeks 3–4 · dairy-free, egg-free throughout</footer>
+
+</div>
+</body>
+</html>
